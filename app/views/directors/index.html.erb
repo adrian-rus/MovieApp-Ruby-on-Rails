@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Director for Movie:
+  <%= @movie.title %> - Rated:
+  <%= @movie.rating %>
+</h1>
+
+<% if @director == nil %>
+  <h3> This movie has no director yet. </h3>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Movie</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><%= @director.firstname %></td>
+        <td><%= @director.lastname %></td>
+        <td><%= @director.movie.title %></td>
+        <td><%= link_to 'Show', movie_director_path(@movie, @director) %></td>
+        <td><%= link_to 'Edit', edit_movie_director_path(@movie, @director) %></td>
+        <td><%= link_to 'Delete', movie_director_path(@movie, @director), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<br>
+
+<%= link_to 'New Director', new_movie_director_path(@movie) %>
+<%= link_to 'Back to movie', @movie %>

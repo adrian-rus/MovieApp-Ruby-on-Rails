@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'reviews/index'
 
   get 'reviews/show'
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   resources :movies do
     
     resources :reviews
+    resources :directors
     
   end
   
